@@ -207,7 +207,7 @@
   height: 100vh;
   transition: opacity 2s, z-index 2.2s;
   z-index: 999999;
-  display: none;
+  /* display: none; */
 }
 .mv_cont{
   width: 100%;
