@@ -1,0 +1,588 @@
+@charset "UTF-8";
+/*============================================================================================
+      Header
+=============================================================================================*/
+/*    Navigation
+=====================================================*/
+@keyframes navAnime{
+  0% {
+    top: -125px;
+  }
+
+  100% {
+    top: 0;
+  }
+}
+.w_Header{
+  z-index: 99999;
+}
+.header_nav{
+  position: absolute;
+  background-color: #212121;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  transition: .2s;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.145);
+  z-index: 999;
+}
+.header_nav.js_show{
+  position: fixed;
+  animation: navAnime .2s ease 0s normal;
+  z-index: 8;
+}
+.header_nav_top{
+  padding: 10px 30px;
+}
+.header_ttl_sub{
+  display: inline-block;
+  padding-right: 10px;
+  font-size: 1.7rem;
+}
+.header_nav_lst{
+  padding: 10px 20px;
+  border-top: 1px solid rgb(99, 99, 99);
+}
+.header_nav_lst_itm{
+  display: inline-block;
+}
+.header_nav_lst_itm+.header_nav_lst_itm{
+  padding-left: 3%;
+}
+.header_nav_top_line{
+  border: none;
+  position: relative;
+  padding: 15px;
+}
+.header_nav_top_line::before{
+  content: "";
+  position: absolute;
+  background: url(../img/common/gold_line.png);
+  background-size: contain;
+  top: 0;
+  left: 0;
+  height: 5px;
+  width: 100%;
+  transform: translateY(-50%);
+}
+.nav_cct_txt{
+  font-size: 2rem;
+}
+.nav_cct_num{
+  font-size: 1.8rem;
+}
+.header_cct_area_sp{
+  display: none;
+}
+@media (max-width: 1040px){
+  .header_nav_lst{
+    height: 100vh;
+    padding: 0;
+  }
+  .header_nav_lst_itm,
+  .header_nav_lst_itm+.header_nav_lst_itm{
+    padding-left: 30px;
+  }
+  .header_nav_lst_itm:first-child{
+    padding-top: 15px;
+  }
+  .header_nav_lst_itm{
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgb(99, 99, 99);
+  }
+  .header_nav_lst_itm+.header_nav_lst_itm{
+    padding-top: 15px;
+  }
+  .header_cct_area{
+    padding-right: 20px;
+  }
+}
+@media (max-width: 576px){
+  .header_nav_top{
+    padding: 2.7vw 4vw;
+  }
+  .header_cct_area{
+    font-size: 1.2rem;
+    padding-right: 5.3vw;
+  }
+  .header_nav_cont{
+    overflow: scroll;
+    height: calc(100vh - 21.3vw);
+  }
+  .header_nav_lst{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+  .header_cct_area{
+    display: none;
+  }
+
+  .header_cct_area_sp{
+    display: flex;
+    padding: 5.3vw 0;
+    background-color: rgb(182, 153, 123);
+  }
+}
+
+/*============================================================================================
+      Footer
+=============================================================================================*/
+.w_Footer{
+  padding-top: 60px;
+  border-top: 1px solid rgb(255, 255, 255);
+  background-color: #d8d8d8;
+  color: black;
+}
+.footer_sub_ttl_txt{
+  display: block;
+}
+.footer_sub_ttl_txt_top{
+  padding-right: 13em;
+}
+.footer_sub_ttl_txt_bottom{
+  padding-left: 14em;
+}
+.footer_sitemap_cont{
+  margin-top: 60px;
+  margin-bottom: 40px;
+}
+.footer_sitemap_cont_left{
+  width: 280px;
+}
+
+.footer_ttl{
+  font-size: 5rem;
+  line-height: 1;
+}
+.footer_ttl_sub{
+  font-size: 2rem;
+}
+.footer_ttl_area{
+  margin-bottom: 40px;
+}
+.footer_addrres_area{
+  margin-bottom: 40px;
+}
+.footer_addrres_num{
+  font-size: 2rem;
+}
+.footer_cct_area{
+  width: 270px;
+  padding: 10px;
+  background-color: rgb(182, 153, 123);
+  box-shadow: 0 0 10px #00000020;
+}
+.footer_cap{
+  padding: 20px 0;
+}
+@media (max-width: 576px){
+  .footer_sitemap_cont_left{
+    width: 100%;
+  }
+  .footer_cct_area{
+    width: 100%;
+  }
+  .footer_sitemap_cont_right{
+    width: 100%;
+    margin-top: 40px;
+  }
+  .footer_lst_itm{
+    width: 33.333%;
+  }
+}
+/*============================================================================================
+      Contents
+=============================================================================================*/
+/*    MVanimation
+=====================================================*/
+.mv_mask{
+  position: fixed;
+  background-color: rgb(48, 48, 48);
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  transition: opacity 2s, z-index 2.2s;
+  z-index: 999999;
+  display: none;
+}
+.mv_cont{
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+.mv_sakura{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: 2s;
+}
+.mv_sakura img{
+  height: 100%;
+  width: 100%;
+}
+.sakura_sub{
+  position: absolute;
+  top: -350px;
+  width: 100%;
+  opacity: 0;
+  transition: 2s;
+}
+.title{
+  font-size: 4.8rem;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  writing-mode: vertical-lr;
+  font-style: normal;
+  font-weight: 400;
+}
+.sub_ttl{
+  font-size: 2.4rem;
+  padding-bottom: 15px;
+}
+.textAnimation02{
+  opacity: 0;
+}
+.textAnimation02 span{
+  display: inline-flex;
+  justify-content: center;
+  }
+.textAnimation02 > span{
+    overflow: hidden;
+  }
+.textAnimation02 >span>span{
+    animation: showText 1s backwards;
+    opacity: 1;
+  }
+.textAnimation01{
+  opacity: 0;
+}
+.textAnimation01 span{
+  display: inline-flex;
+  justify-content: center;
+  }
+.textAnimation01 > span{
+    overflow: hidden;
+  }
+.textAnimation01 >span>span{
+    animation: showText 1s backwards;
+    opacity: 1;
+  }
+  @keyframes showText{
+    0%{
+      opacity: 0;
+      transform: translateY(-10%);
+    }
+    100%{
+        opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+.animation_fig{
+  position: absolute;
+  width: 100%;
+  height: 400px;
+  left: 0;
+  bottom: -20px;
+  opacity: 0;
+  transition: 2s;
+}
+.animation_fig img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#headerPic{
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+#headerPic img{
+  opacity: 0;
+  transition: opacity 3s ease-in-out; 
+  width: 110%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  z-index: -1;
+}
+@media (max-width: 896px){
+  .sakura_sub{
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    opacity: 0;
+    transition: 2s;
+  }
+}
+
+
+/*    slider
+=====================================================*/
+.top_mv_sec{
+  padding-top: 125px;
+  z-index: 8;
+}
+.top_slider.slick-slider{
+  padding-bottom: 30px;
+  height: calc(100vh - 125px);
+}
+.top_slider_itm.g_slider_top_itm{
+  height: 100%;
+  text-align: center;
+}
+.top_slider_itm.g_slider_top_itm img{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  left: 10px;
+  object-fit: cover;
+  transform: scale(1.1);
+}
+@keyframes sliderAnime{
+  0% {
+    left: -10px;
+  }
+  100% {
+    left: 10px;
+  }
+}
+.slick-active img{
+  animation: sliderAnime 5s linear 0s normal;
+  animation-fill-mode: forwards;
+}
+@media (max-width: 1040px){
+  .top_mv_sec{
+    padding-top: 70px;
+  }
+  .top_slider.slick-slider{
+    height: calc(100vh - 70px);
+  }
+}
+
+/*    お知らせ
+=====================================================*/
+.top_info_date{
+  padding: 0 20px;
+}
+.top_info_lst_itm{
+  padding-bottom: 20px;
+}
+.top_info_lst_itm+.top_info_lst_itm{
+  padding-top: 20px;
+  border-top: 1px solid rgb(99, 99, 99);
+}
+.top_info_lst_itm:last-child{
+  padding-bottom: 0;
+}
+.top_info_lst_txt{
+  width: calc(100% - 170px);
+}
+.top_info_img_lst{
+  width: 800px;
+  margin: auto;
+  margin-top: 60px;
+}
+.top_info_img_lst_itm{
+  width: 47.5%;
+}
+.top_info_img_lst_itm:first-child{
+  margin-right: 5%;
+}
+.top_info_img_lst_itm img{
+  width: 100%;
+  object-fit: cover;
+}
+@media (max-width: 896px){
+  .top_info_lst_txt{
+    width: 100%;
+    padding-left: 40px;
+  }
+  .top_info_img_lst{
+    width: 100%;
+    margin: auto;
+    margin-top: 60px;
+  }
+}
+
+/*    ご挨拶
+=====================================================*/
+.top_about_txtcont{
+  overflow: hidden;
+}
+.top_about_img{
+  clear: both;
+  float: right;
+  width: 25vw;
+  max-width: 300px;
+  margin:10px 10px 10px 20px;
+  box-shadow: 0 0 10px #ffffff1f;
+}
+.top_about_txtarea_name{
+  display: block;
+  padding: 10px 0;
+}
+@media (max-width: 896px){
+  .top_about_img{
+    float: none;
+    margin-left:0;
+    margin-right: 20px;
+  }
+}
+@media (max-width: 576px){
+  .top_about_img{
+    margin: auto;
+    margin-top: 20px;
+    width: 50vw;
+  }
+  .top_about_txtarea_btm{
+    margin: auto;
+    margin-top: 20px;
+  }
+}
+
+/*    店舗情報
+=====================================================*/
+
+/*============================================================================================
+      course
+=============================================================================================*/
+/*    夜の部
+=====================================================*/
+.course_slider_itm{
+  height: 400px;
+  width: 800px;
+  margin: 0 1vw;
+}
+.course_slider_itm img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.cource_mv{
+  width: 800px;
+  margin: auto;
+}
+@media (max-width: 896px){
+  .cource_mv{
+    width: 100%;
+  }
+  .course_slider_itm{
+    height: 40vw;
+    width: 100%;
+    margin: 0 1vw;
+  }
+}
+/*============================================================================================
+      drink
+=============================================================================================*/
+/*    お飲み物
+=====================================================*/
+.drink_lst_cont+.drink_lst_cont{
+  border-top: 1px solid rgb(99, 99, 99);
+}
+.drink_slider.g_slider_top{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 260px;
+  width: 48.5%;
+}
+.drink_slider_itm img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media (max-width: 896px){
+  .drink_slider.g_slider_top{
+    height: 32vw;
+  }
+}
+@media (max-width: 576px){
+  .drink_lst_cont_left.l_clm2_sm_1{
+    margin-top: 0;
+  }
+  .drink_lst_cont_left .drink_lst_cont{
+    border-top: 1px solid rgb(99, 99, 99);
+    padding-top: 20px;
+  }
+  .drink_slider.g_slider_top{
+    position: relative;
+    width: 100%;
+    height: 66.7vw;
+    margin-top: 20px;
+  }
+}
+/*    お持ち帰り
+=====================================================*/
+.drink_box_lunch_img img{
+  max-height: 300px;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+/*    幻の品
+=====================================================*/
+.drink_pud_mv{
+  width: 800px;
+  height: 400px;
+  margin: auto;
+}
+.drink_pud_mv img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/*============================================================================================
+      shop
+=============================================================================================*/
+/*    店舗情報
+=====================================================*/
+.shop_tbl.g_shop_tbl::before{
+  display: none;
+}
+/*    地図情報
+=====================================================*/
+.shop_map{
+  display: block;
+  margin: auto;
+}
+@media (max-width: 896px){
+  .shop_map{
+    width: 100%;
+    max-height: 300px;
+    height: 66.7vw;
+  }
+}
+/*    ギャラリー
+=====================================================*/
+.shop_gallery_lst_itm{
+  height: 300px;
+  box-shadow:0 0 10px rgba(255, 255, 255, 0.15);
+}
+.shop_gallery_lst_itm a{
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+.shop_gallery_lst_itm a img{
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+@media (max-width: 896px){
+  .shop_gallery_lst_itm{
+    height: 28.8vw;
+    width: 28.8vw;
+  }
+}
